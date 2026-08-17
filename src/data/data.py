@@ -14,8 +14,15 @@ class Data:
         Returns:
             list: Lista con los elementos en orden inverso
         """
-        pass
-    
+        listaHecha = []
+        i = len(lista) - 1
+        while i >= 0:
+            listaHecha.append(lista[i])
+            i -= 1
+        return listaHecha
+
+        
+
     def buscar_elemento(self, lista, elemento):
         """
         Busca un elemento en una lista y devuelve su índice (o -1 si no existe).
@@ -28,8 +35,11 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
-    
+        for i in range(len(lista)):
+            if lista[i] == elemento:
+                return i
+        return -1
+
     def eliminar_duplicados(self, lista):
         """
         Elimina elementos duplicados de una lista sin usar set().
