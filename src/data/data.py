@@ -51,7 +51,11 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+        lista_sin_duplicados = []
+        for elemento in lista:
+            if elemento not in lista_sin_duplicados:
+                lista_sin_duplicados.append(elemento)
+        return lista_sin_duplicados
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -64,7 +68,22 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        pass
+        lista_combinada = []
+        i, j = 0, 0
+        while i < len(lista1) and j < len(lista2):
+            if lista1[i] < lista2[j]:
+                lista_combinada.append(lista1[i])
+                i += 1
+            else:
+                lista_combinada.append(lista2[j])
+                j += 1
+        while i < len(lista1):
+            lista_combinada.append(lista1[i])
+            i += 1
+        while j < len(lista2):
+            lista_combinada.append(lista2[j])
+            j += 1
+        return lista_combinada
     
     def rotar_lista(self, lista, k):
         """
@@ -77,7 +96,9 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        pass
+        n = len(lista)
+        k = k % n  
+        return lista[-k:] + lista[:-k]
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -89,7 +110,10 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        n = len(lista) + 1  # El tamaño esperado de la lista completa
+        suma_esperada = n * (n + 1) // 2  # Suma de los primeros n números
+        suma_actual = sum(lista)  # Suma de los elementos presentes en la lista
+        return suma_esperada - suma_actual  # El número faltante es la diferencia
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
@@ -102,8 +126,11 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
-    
+        for elemento in conjunto1:
+            if elemento not in conjunto2:
+                return False
+        return True
+
     def implementar_pila(self):
         """
         Implementa una estructura de datos tipo pila (stack) usando listas.
